@@ -1,8 +1,8 @@
 /* === MAIN PAGE STYLES === */
 
 body {
-    background-color: #0F0F0F;
-    color: #333333;
+    background: linear-gradient(135deg, #0d0d0d 0%, #161616 50%, #0a0a0a 100%);
+    color: #c5c5c5;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
@@ -17,37 +17,47 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color:#1a0f2e;
+    background: linear-gradient(90deg, #121212 0%, #1a1a1a 50%, #121212 100%);
     padding: 30px;
     width: 100%;
     flex-shrink: 0;
+    box-shadow: 0 8px 32px rgba(100, 180, 150, 0.08);
 }
 
 .in-header-elements-container {
     display: flex;
     gap: 115px;
 }
+
 .in-header-elements {
     padding: 15px 30px;
-    border: 2px solid #da00ff;
+    border: 2px solid transparent;
+    border-image: linear-gradient(135deg, #4a7d6f, #8b7030) 1;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
+    background: linear-gradient(135deg, rgba(74, 125, 111, 0.05), rgba(139, 112, 48, 0.05));
 }
-.in-header-elements:hover{
-    box-shadow: 0 0 25px rgba(57, 255, 20, 0.9), inset 0 0 15px rgba(57, 255, 20, 0.3);
-    background-color: rgba(57, 255, 20, 0.1);
+
+.in-header-elements:hover {
+    box-shadow: 0 0 20px rgba(100, 180, 150, 0.35), inset 0 0 15px rgba(100, 180, 150, 0.15);
+    background: linear-gradient(135deg, rgba(74, 125, 111, 0.12), rgba(139, 112, 48, 0.12));
     transform: scale(1.05);
 }
 
 .in-header-elements:hover .header-text-styling {
-    color: #da00ff;
-    text-shadow: 0 0 10px #da00ff;
+    background: linear-gradient(135deg, #64b496, #8b7030);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
 }
 
 .header-text-styling {
-    background-color: transparent;
-    color: #b8a8ff;
+    background: linear-gradient(135deg, #5a9f88, #a89060);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin: 0;
     font-size: 1.2em;
     cursor: pointer;
@@ -57,37 +67,45 @@ body {
 .register-container {
     padding: 0px 100px;
 }
+
 .register {
-    background-color:#1a0f2e;
-    color: #b8a8ff;
+    background: linear-gradient(135deg, #8b6464, #8b7030);
+    color: #e0e0e0;
     margin: 0;
     padding: 10px 20px;
-    border: 2px solid #da00ff;
+    border: 2px solid transparent;
+    border-image: linear-gradient(135deg, #8b6464, #8b7030) 1;
     max-width: 700px;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 .register:hover {
-    background-color: rgba(57, 255, 20, 0.8);
-    color: #0F0F0F;
-    box-shadow: 0 0 40px rgba(57, 255, 20, 0.8);
+    background: linear-gradient(135deg, #8b7030, #64b496);
+    color: #f5f5f5;
+    box-shadow: 0 0 30px rgba(139, 112, 48, 0.5), inset 0 0 15px rgba(100, 180, 150, 0.25);
+    transform: scale(1.08);
 }
-/*Aside and Section editing */
+
+/* Aside and Section editing */
 .main-container {
     display: flex;
     flex: 1;
     min-height: 0;
 }
+
 /* Aside with Nav in */
 .aside {
     display: flex;
     width: 250px;
-    background-color: #1a0f2e;
+    background: linear-gradient(180deg, #121212 0%, #191919 100%);
     padding: 20px;
     min-height: calc(100vh - 200px);
     flex-shrink: 0;
+    box-shadow: 2px 0 15px rgba(100, 180, 150, 0.08);
 }
+
 .nav {
     display: flex;
     flex-direction: column;
@@ -96,38 +114,44 @@ body {
 }
 
 .in-nav-elements {
-    background-color: #1a0f2e;
+    background: linear-gradient(90deg, rgba(139, 100, 100, 0.08), rgba(74, 125, 111, 0.08));
     padding: 15px 20px;
     border-radius: 8px;
-    border-left: 4px solid #da00ff;
+    border-left: 4px solid;
+    border-image: linear-gradient(180deg, #64b496, #8b7030) 1;
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 .in-nav-elements:hover {
-    box-shadow: 0 0 25px rgba(218, 0, 255, 0.9), inset 0 0 15px rgba(218, 0, 255, 0.3);
-    background-color: rgba(218, 0, 255, 0.1);
+    box-shadow: 0 0 20px rgba(139, 100, 100, 0.4), inset 0 0 15px rgba(100, 180, 150, 0.15);
+    background: linear-gradient(90deg, rgba(139, 100, 100, 0.15), rgba(74, 125, 111, 0.15));
     transform: scale(1.05);
 }
 
 .nav-text-styling {
-    background-color: transparent;
-    color: #b8a8ff;
+    background: linear-gradient(135deg, #64b496, #8b6464);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin: 0;
     font-size: 1.2em;
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 .in-nav-elements:hover .nav-text-styling {
-    color: #da00ff;
-    text-shadow: 0 0 10px #da00ff;
+    background: linear-gradient(135deg, #8b7030, #8b6464);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* Section, so the game board */
-
 .section {
     flex: 1;
     padding: 50px;
-    background-color: #0F0F0F;
+    background: linear-gradient(135deg, #0d0d0d 0%, #161616 100%);
     margin-left: 0;
     overflow: auto;
 }
@@ -137,11 +161,13 @@ body {
     padding: 20px;
     width: 90%;
     height: 80%;
-    border: 2px solid #da00ff;
+    border: 2px solid transparent;
+    border-image: linear-gradient(135deg, #4a7d6f, #8b7030) 1;
+    background: linear-gradient(135deg, rgba(74, 125, 111, 0.05), rgba(139, 112, 48, 0.05));
+    box-shadow: 0 0 25px rgba(74, 125, 111, 0.12), inset 0 0 15px rgba(74, 125, 111, 0.08);
 }
 
 /* Footer, the bottom */
-
 .footer {
     display: flex;
     justify-content: space-between;
@@ -149,41 +175,50 @@ body {
     width: 100%;
     height: 10%;
     flex-shrink: 0;
-    background-color: #1a0f2e;
+    background: linear-gradient(90deg, #121212 0%, #1a1a1a 50%, #121212 100%);
     box-sizing: border-box;
     padding: 0px;
+    box-shadow: 0 -8px 32px rgba(100, 180, 150, 0.08);
 }
 
 .in-footer-elements {
     padding: 15px 30px;
-    border: 2px solid #da00ff;
+    border: 2px solid transparent;
+    border-image: linear-gradient(135deg, #4a7d6f, #8b7030) 1;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
+    background: linear-gradient(135deg, rgba(74, 125, 111, 0.05), rgba(139, 112, 48, 0.05));
 }
-.in-footer-elements:hover{
-    box-shadow: 0 0 25px rgba(57, 255, 20, 0.9), inset 0 0 15px rgba(57, 255, 20, 0.3);
-    background-color: rgba(57, 255, 20, 0.1);
+
+.in-footer-elements:hover {
+    box-shadow: 0 0 20px rgba(100, 180, 150, 0.35), inset 0 0 15px rgba(139, 112, 48, 0.15);
+    background: linear-gradient(135deg, rgba(74, 125, 111, 0.12), rgba(139, 112, 48, 0.12));
     transform: scale(1.05);
 }
 
 .in-footer-elements:hover .footer-text-styling {
-    color: #da00ff;
-    text-shadow: 0 0 10px #da00ff;
+    background: linear-gradient(135deg, #8b7030, #8b6464);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .footer-text-styling {
-    background-color: transparent;
-    color: #b8a8ff;
+    background: linear-gradient(135deg, #64b496, #8b6464);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin: 0;
     font-size: 1.2em;
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 .footer-left-container {
     padding: 0px 20px;
 }
+
 .footer-right-container {
     padding: 0px 40px;
 }
-
