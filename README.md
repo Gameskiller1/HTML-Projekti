@@ -1,2 +1,3 @@
 # HTML-Projekti
 1 of the first projects, it'll have HTML, CSS, JS...
+Will contain handwritten code, possibly will use AI for styling
