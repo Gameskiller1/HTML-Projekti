@@ -1,0 +1,142 @@
+/* === MAIN PAGE STYLES === */
+
+body {
+    background-color: #0F0F0F;
+    color: #333333;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+.header {   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#1A1A2E;
+    padding: 30px;
+    width: 97%;
+    flex-shrink: 0;
+}
+
+.in-header-elements-container {
+    display: flex;
+    gap: 115px;
+}
+.in-header-elements {
+    padding: 15px 30px;
+    border: 2px solid #39FF14;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.in-header-elements:hover{
+    box-shadow: 0 0 25px rgba(57, 255, 20, 0.9), inset 0 0 15px rgba(57, 255, 20, 0.3);
+    background-color: rgba(57, 255, 20, 0.1);
+    transform: scale(1.05);
+}
+
+.in-header-elements:hover .header-text-styling {
+    color: #39FF14;
+    text-shadow: 0 0 10px #39FF14;
+}
+
+.header-text-styling {
+    background-color: transparent;
+    color: #00D9FF;
+    margin: 0;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.log-in {
+    background-color:#1A1A2E;
+    color: #00D9FF;
+    margin: 0;
+    padding: 10px 20px;
+    border: 2px solid #39FF14;
+    max-width: 700px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.log-in:hover {
+    background-color: rgba(57, 255, 20, 0.8);
+    color: #0F0F0F;
+    box-shadow: 0 0 40px rgba(57, 255, 20, 0.8);
+}
+/*Aside and Section editing */
+.main-container {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+}
+/* Aside with Nav in */
+.aside {
+    display: flex;
+    width: 250px;
+    background-color: #1A1A2E;
+    padding: 20px;
+    min-height: calc(100vh - 200px);
+    flex-shrink: 0;
+}
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.in-nav-elements {
+    background-color: #1A1A2E;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border-left: 4px solid #39FF14;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.in-nav-elements:hover {
+    box-shadow: 0 0 25px rgba(57, 255, 20, 0.9), inset 0 0 15px rgba(57, 255, 20, 0.3);
+    background-color: rgba(57, 255, 20, 0.1);
+    transform: scale(1.05);
+}
+
+.nav-text-styling {
+    background-color: transparent;
+    color: #00D9FF;
+    margin: 0;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.in-nav-elements:hover .nav-text-styling {
+    color: #39FF14;
+    text-shadow: 0 0 10px #39FF14;
+}
+
+/* Section, so the game board */
+
+.section {
+    flex: 1;
+    padding: 50px;
+    background-color: #0F0F0F;
+    margin-left: 0;
+    overflow: auto;
+}
+
+.game-box {
+    margin: 150px;
+    width: 300px;
+    height: 200px;
+}
+
+/* Footer, the bottom */
+
+.footer {
+    width: 100%;
+    flex-shrink: 0;
+}

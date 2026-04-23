@@ -1,0 +1,64 @@
+Color Scheme: Dark background with neon/bright accents
+
+    Background: Very dark gray or black (#0F0F0F)
+    Cards: Gradient cards with metallic feels - purple to blue, orange to pink
+    Accents: Neon green (#39FF14) or bright cyan
+
+Vibe: Modern gaming, feels premium, easy on eyes at night
+Best for: Cool factor, good for extended play
+
+
+1. Body/Background (Foundation)
+
+    Set background to #0F0F0F✅
+    Use a dark gray text color for readability✅
+    Set a nice font (like 'Arial' or 'Segoe UI')✅
+    Add subtle margins/padding✅
+
+2. Header Styling
+
+    Use Flexbox to arrange logo, middle text items, and login horizontally✅
+    Add neon green or cyan borders/underlines for accent
+    Make h1 text white or light gray✅
+    Add hover effects on interactive items (like login button)
+    Maybe a subtle glow effect on text with neon colors
+
+3. Navigation/Aside
+
+    Style it as a sidebar (maybe 200-250px wide)
+    Dark background (slightly lighter than body, like #1A1A2E)
+    Make nav items look like buttons with padding
+    Add neon green glow on hover
+    Use cursor: pointer to show it's clickable
+
+4. Section (Game Board)
+
+    Center it on the page
+    Use CSS Grid for card layout (4x4 or 3x3 grid)
+    Add padding around the board
+    Cards should have:
+        Gradient backgrounds (purple→blue or orange→pink)
+        Border-radius for rounded corners
+        Box shadow for depth
+        Hover effect (scale up or glow)
+
+5. Cards Specifically
+
+    Gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%)
+    Glow effect: box-shadow: 0 0 20px rgba(57, 255, 20, 0.5) (neon green glow)
+    Smooth transition on hover
+    Cursor pointer
+
+6. Footer
+
+    Dark background matching body
+    Neon text or underlines
+    Flex layout to space items evenly
+    Small text size
+
+7. General Effects to Add
+
+    Smooth transitions on all hover effects
+    Text shadows with neon colors for dramatic effect
+    Glowing borders on interactive elements
+    Color consistency - use neon green/cyan sparingly for accent
