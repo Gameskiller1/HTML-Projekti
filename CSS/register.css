@@ -1,0 +1,76 @@
+/* === Special Register Page Styles === */
+
+/* Keyframe animation for color cycling */
+@keyframes colorCycle {
+    0% {
+        color: #5a9f88;      /* Teal */
+    }
+    25% {
+        color: #64b496;      /* Light teal */
+    }
+    50% {
+        color: #a89060;      /* Gold */
+    }
+    75% {
+        color: #8b7030;      /* Dark gold */
+    }
+    100% {
+        color: #5a9f88;      /* Back to teal */
+    }
+}
+
+/* make text in header align to center */
+.header {
+    justify-content: center;
+}
+
+/* change header to feel like text */
+.header-text-styling {
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    background-clip: unset;
+    color: #c5c5c5;            
+    cursor: default;             
+    transition: color 0.3s ease;
+    animation: colorCycle 6s ease-in-out infinite;
+}
+.in-header-elements:hover .header-text-styling {
+    all: unset;
+}
+
+.in-header-elements {
+    all: unset;
+    pointer-events: none;
+}
+
+.in-header-elements:hover {
+    all: unset; 
+}
+
+/* hide aside */
+.aside {
+    display: none;
+}
+
+/* make section be the full widthm add styles */
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 425px;
+    box-shadow: 
+        0 0 30px rgba(100, 180, 150, 0.25),
+        0 0 60px rgba(74, 125, 111, 0.15),
+        inset 0 0 30px rgba(100, 180, 150, 0.08);
+    border: 1px solid rgba(100, 180, 150, 0.2);
+    border-radius: 12px;
+    transition: box-shadow 0.3s ease;
+}
+
+.section:hover {
+    box-shadow: 
+        0 0 40px rgba(100, 180, 150, 0.35),
+        0 0 80px rgba(74, 125, 111, 0.2),
+        inset 0 0 40px rgba(100, 180, 150, 0.1);
+}
