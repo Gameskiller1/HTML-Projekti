@@ -53,12 +53,16 @@
     display: none;
 }
 
-/* make section be the full widthm add styles */
+/* make section be the full width, add styles */
 .section {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 50px 425px;
+    margin: 50px auto;
+    width: 100%;
+    max-width: 450px;
+    padding: 50px 40px;
     box-shadow: 
         0 0 30px rgba(100, 180, 150, 0.25),
         0 0 60px rgba(74, 125, 111, 0.15),
@@ -73,4 +77,227 @@
         0 0 40px rgba(100, 180, 150, 0.35),
         0 0 80px rgba(74, 125, 111, 0.2),
         inset 0 0 40px rgba(100, 180, 150, 0.1);
+}
+
+/* Register title styling */
+.login-title {
+    font-size: 32px;
+    font-weight: 600;
+    color: #b0b0b0;
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.registerp-title {
+    font-size: 32px;
+    font-weight: 600;
+    color: #b0b0b0;
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* Login/Register form container */
+.log-in {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.registerp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+}
+
+/* Input field styling */
+.log-in input[type="email"],
+.log-in input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    background-color: #1a1a1a;
+    border: 1px solid #3a5a50;
+    border-radius: 6px;
+    color: #b0b0b0;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.log-in input[type="email"]:focus,
+.log-in input[type="password"]:focus {
+    border-color: #64b496;
+    box-shadow: 0 0 10px rgba(100, 180, 150, 0.3);
+    background-color: #0f1a17;
+}
+
+.log-in input[type="email"]::placeholder,
+.log-in input[type="password"]::placeholder {
+    color: #666666;
+}
+
+
+.registerp input[type="email"],
+.registerp input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    background-color: #1a1a1a;
+    border: 1px solid #3a5a50;
+    border-radius: 6px;
+    color: #b0b0b0;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.registerp input[type="email"]:focus,
+.registerp input[type="password"]:focus {
+    border-color: #64b496;
+    box-shadow: 0 0 10px rgba(100, 180, 150, 0.3);
+    background-color: #0f1a17;
+}
+
+.registerp input[type="email"]::placeholder,
+.registerp input[type="password"]::placeholder {
+    color: #666666;
+}
+
+
+/* ===== CONSOLIDATED TITLE STYLING ===== */
+.login-title,
+.registerp-title {
+    font-size: 32px;
+    font-weight: 600;
+    color: #b0b0b0;
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* ===== CONSOLIDATED FORM CONTAINERS ===== */
+.log-in,
+.registerp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+}
+
+/* ===== CONSOLIDATED INPUT FIELDS ===== */
+.log-in input[type="email"],
+.log-in input[type="password"],
+.registerp input[type="email"],
+.registerp input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    background-color: #1a1a1a;
+    border: 1px solid #3a5a50;
+    border-radius: 6px;
+    color: #b0b0b0;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.log-in input[type="email"]:focus,
+.log-in input[type="password"]:focus,
+.registerp input[type="email"]:focus,
+.registerp input[type="password"]:focus {
+    border-color: #64b496;
+    box-shadow: 0 0 10px rgba(100, 180, 150, 0.3);
+    background-color: #0f1a17;
+}
+
+.log-in input[type="email"]::placeholder,
+.log-in input[type="password"]::placeholder,
+.registerp input[type="email"]::placeholder,
+.registerp input[type="password"]::placeholder {
+    color: #666666;
+}
+
+/* ===== SUBMIT BUTTON STYLING ===== */
+.log-in input[type="submit"],
+.registerp input[type="submit"] {
+    width: 100%;
+    padding: 12px 14px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    background-color: #1a1a1a;
+    border: 1px solid #5a9f88;
+    border-radius: 6px;
+    color: #b0b0b0;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-sizing: border-box;
+}
+
+.log-in input[type="submit"]:hover,
+.registerp input[type="submit"]:hover {
+    border-color: #64b496;
+    box-shadow: 0 0 10px rgba(100, 180, 150, 0.3);
+    background-color: #0f1a17;
+    transform: translateY(-2px);
+}
+
+.log-in input[type="submit"]:active,
+.registerp input[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: 0 0 8px rgba(100, 180, 150, 0.2);
+}
+
+/* ===== CONSOLIDATED LABEL STYLING ===== */
+.login-fields,
+.registerp-fields {
+    font-size: 16px;
+    font-weight: 500;
+    color: #b0b0b0;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+    width: 100%;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+}
+
+/* ===== CONSOLIDATED LINK STYLING ===== */
+.log-in a,
+.registerp a {
+    color: #a366ff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.log-in a:hover,
+.registerp a:hover {
+    color: #c699ff;
+    text-decoration: underline;
+}
+
+/* ===== ACCOUNT FIELDS STYLING ===== */
+.account-fields {
+    font-size: 14px;
+    font-weight: 400;
+    color: #808080;
+    margin-top: 20px;
+    margin-bottom: 0;
+    text-align: center;
+    width: 100%;
 }
