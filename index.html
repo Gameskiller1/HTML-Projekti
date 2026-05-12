@@ -6,27 +6,76 @@
     <title>Memory Game</title>
     <link rel="stylesheet" href="CSS/GlobalStyles.css">
     <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/game.css">
 </head>
 <body>
     <header class="header">
-        <div><h1>here goes logo</h1></div>
+        <div><h1>Color Blast(name of the game) logo</h1></div>
         <div class="in-header-elements-container">
             <div class="in-header-elements"><h1 class="header-text-styling">To be added text</h1></div>
             <div class="in-header-elements"><h1 class="header-text-styling">To be added text</h1></div>
             <div class="in-header-elements"><h1 class="header-text-styling">To be added text</h1></div>
         </div>
-        <div class="register-container"><h1 class="register">Register</h1></div>
+        <div class="register-container"><h1><a href="register.html" class="register">Register</a></h1></div>
     </header>
     <div class="main-container">
     <aside class="aside">
         <nav class="nav">
-            <div class="in-nav-elements"><h1 class="nav-text-styling">New game option</h1></div>
-            <div class="in-nav-elements"><h1 class="nav-text-styling">Pause game (pauses timer that i will make in the future)</h1></div>
-            <div class="in-nav-elements"><h1 class="nav-text-styling">Game stats (cards amount, idk speed etc.)</h1></div>
+            <div class="in-nav-elements">
+                <h1 class="nav-text-styling">Round: <span id="round-display">1</span></h1>
+            </div>
+            <div class="in-nav-elements">
+                <h1 class="nav-text-styling">Score: <span id="score-display">0</span></h1>
+            </div>
+            <div class="in-nav-elements">
+                <h1 class="nav-text-styling">Best: <span id="best-display">—</span></h1>
+            </div>
+            <div class="in-nav-elements">
+                <button id="new-round-btn">New Color</button>
+            </div>
         </nav>
     </aside>
     <section class="section">
-        <div class="game-box"><h1>Here will be main board, in future some text/divs too/layouts?</h1></div>
+        <div class="game-box">
+        
+            <!-- The two color boxes -->
+            <div class="colors-container">
+                <div class="color-box-wrapper-target">
+                    <p>Target Color</p>
+                    <div class="color-box" id="target-box"></div>
+                </div>
+            
+                <span class="vs-label">VS</span>
+            
+                <div class="color-box-wrapper-player">
+                    <p>Your Mix</p>
+                    <div class="color-box" id="player-box"></div>
+                </div>
+            </div>
+        
+            <!-- RGB Sliders -->
+            <div class="sliders-container">
+                <div class="slider-row">
+                    <span class="slider-label">R</span>
+                    <input type="range" id="slider-r" min="0" max="255" value="128">
+                    <span id="val-r">128</span>
+                </div>
+                <div class="slider-row">
+                    <span class="slider-label">G</span>
+                    <input type="range" id="slider-g" min="0" max="255" value="128">
+                    <span id="val-g">128</span>
+                </div>
+                <div class="slider-row">
+                    <span class="slider-label">B</span>
+                    <input type="range" id="slider-b" min="0" max="255" value="128">
+                    <span id="val-b">128</span>
+                </div>
+            </div>
+        
+            <!-- Submit -->
+            <button id="submit-btn">Submit Guess</button>
+        
+        </div>
     </section>
     </div>
     <footer class="footer">
@@ -38,5 +87,6 @@
         <div class="in-footer-elements"><h1 class="footer-text-styling">To be added text/link</h1></div>
         </div>
     </footer>
+    <script src="JS/colorGame.js"></script>
 </body>
 </html>

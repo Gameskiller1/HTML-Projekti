@@ -1,0 +1,172 @@
+/* === Color Game Styles === */
+
+.game-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px;
+    border: 2px solid transparent;
+    border-image: linear-gradient(135deg, #4a7d6f, #8b7030) 1;
+    background: linear-gradient(135deg, rgba(74, 125, 111, 0.05), rgba(139, 112, 48, 0.05));
+    box-shadow: 0 0 25px rgba(74, 125, 111, 0.12), inset 0 0 15px rgba(74, 125, 111, 0.08);
+}
+
+/* === Color Boxes === */
+
+.colors-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    background: linear-gradient(90deg, #121212 0%, #1a1a1a 50%, #121212 100%);
+}
+
+
+.color-box-wrapper-target,
+.color-box-wrapper-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.color-box-wrapper-target p,
+.color-box-wrapper-player p {
+    background: linear-gradient(135deg, #5a9f88, #a89060);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.color-box {
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    border-image: linear-gradient(135deg, #4a7d6f, #8b7030) 1;
+    box-shadow: 0 0 25px rgba(74, 125, 111, 0.15);
+    transition: background-color 0.08s ease;
+}
+
+.vs-label {
+    font-size: 1.8rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #4a7d6f, #8b7030);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.6;
+}
+
+/* === Sliders === */
+
+.sliders-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 500px;
+    padding: 25px 30px;
+    background: linear-gradient(135deg, rgba(74, 125, 111, 0.05), rgba(139, 112, 48, 0.05));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+}
+
+.slider-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.slider-label {
+    width: 20px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.slider-row input[type="range"] {
+    flex: 1;
+    height: 6px;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.slider-row input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #c5c5c5;
+    border: 2px solid #0d0d0d;
+    cursor: pointer;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+#slider-r { background: linear-gradient(to right, #1a1a1a, #ff4444); }
+#slider-g { background: linear-gradient(to right, #1a1a1a, #44ff88); }
+#slider-b { background: linear-gradient(to right, #1a1a1a, #4488ff); }
+
+#label-r { color: #ff6b6b; }
+#label-g { color: #6bff9e; }
+#label-b { color: #6baeff; }
+
+.slider-row span:last-child {
+    width: 35px;
+    text-align: right;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* === Submit Button === */
+
+#submit-btn {
+    padding: 12px 50px;
+    background: linear-gradient(135deg, #8b6464, #8b7030);
+    color: #e0e0e0;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+#submit-btn:hover {
+    background: linear-gradient(135deg, #8b7030, #4a7d6f);
+    transform: scale(1.06);
+    box-shadow: 0 0 25px rgba(139, 112, 48, 0.4);
+}
+
+/* === New Color Button === */
+
+#new-round-btn {
+    display: flex;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, rgba(74, 125, 111, 0.15), rgba(139, 112, 48, 0.15));
+    color: #c5c5c5;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    width: 100%;
+}
+
+#new-round-btn:hover {
+    background: linear-gradient(135deg, rgba(74, 125, 111, 0.3), rgba(139, 112, 48, 0.3));
+    transform: scale(1.04);
+    color: #e0e0e0;
+}

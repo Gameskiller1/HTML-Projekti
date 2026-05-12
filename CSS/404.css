@@ -1,0 +1,226 @@
+/* === 404 Page Styles === */
+
+/* ── Glitch keyframes — uses drop-shadow instead of text-shadow ── */
+@keyframes glitch {
+    0%,  100% { filter: drop-shadow(0 0 8px rgba(61, 122, 101, 0.6));  opacity: 1; }
+    15%        { filter: drop-shadow(2px 0 6px rgba(58, 104, 128, 0.7)); opacity: 0.95; }
+    30%        { filter: drop-shadow(-2px 0 6px rgba(61, 122, 101, 0.7)); opacity: 1; }
+    50%        { filter: drop-shadow(0 0 14px rgba(74, 128, 144, 0.5)); opacity: 0.97; }
+    70%        { filter: drop-shadow(1px 0 8px rgba(61, 122, 101, 0.6)); opacity: 1; }
+    85%        { filter: drop-shadow(-1px 0 6px rgba(58, 104, 128, 0.6)); opacity: 0.96; }
+}
+
+/* ── Floating / bobbing animation ── */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-12px); }
+}
+
+/* ── Pulsing glow on the card border ── */
+@keyframes borderGlow {
+    0%, 100% {
+        box-shadow:
+            0 0 30px rgba(100, 180, 150, 0.25),
+            0 0 60px rgba(74, 125, 111, 0.15),
+            inset 0 0 30px rgba(100, 180, 150, 0.08);
+    }
+    50% {
+        box-shadow:
+            0 0 50px rgba(100, 180, 150, 0.45),
+            0 0 100px rgba(74, 125, 111, 0.25),
+            inset 0 0 50px rgba(100, 180, 150, 0.12);
+    }
+}
+
+/* ── Fade + slide-up entry ── */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Color cycle (reused from your register page) ── */
+@keyframes colorCycle {
+    0%   { color: #5a9f88; }
+    25%  { color: #64b496; }
+    50%  { color: #a89060; }
+    75%  { color: #8b7030; }
+    100% { color: #5a9f88; }
+}
+
+/* ── Scanline flicker ── */
+@keyframes scanline {
+    0%   { background-position: 0 0; }
+    100% { background-position: 0 100vh; }
+}
+
+/* ─────────────────────────────────────────── */
+
+/* Header title — same as your other pages */
+.header {
+    justify-content: center;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #64b496;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: colorCycle 6s ease-in-out infinite;
+}
+
+/* Hide aside — 404 doesn't need navigation */
+.aside {
+    display: none;
+}
+
+/* Center the section */
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle scanline overlay for the whole section */
+.section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(100, 180, 150, 0.015) 2px,
+        rgba(100, 180, 150, 0.015) 4px
+    );
+    pointer-events: none;
+    animation: scanline 8s linear infinite;
+    z-index: 0;
+}
+
+/* Card container */
+.error-card {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 520px;
+    width: 100%;
+    padding: 50px 40px;
+    background: linear-gradient(135deg, #0f1a17 0%, #111111 100%);
+    border: 1px solid rgba(100, 180, 150, 0.2);
+    border-radius: 16px;
+    animation:
+        borderGlow 3s ease-in-out infinite,
+        fadeUp 0.7s ease both;
+}
+
+/* Big glitching 404 number */
+.error-code {
+    font-size: 120px;
+    font-weight: 900;
+    line-height: 1;
+    margin: 0 0 10px;
+    background: linear-gradient(135deg, #3d7a65 0%, #4a8090 50%, #3a6880 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation:
+        glitch 3s ease-in-out infinite,
+        float  4s ease-in-out infinite;
+    letter-spacing: -4px;
+    user-select: none;
+}
+
+/* Pause animation on hover over the box and slower pulsing itself */
+.error-code:hover {
+    animation-play-state: paused;
+}
+
+/* Divider line */
+.error-divider {
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #3d7a65, #3a6880, transparent);
+    margin: 16px 0 24px;
+    border: none;
+    opacity: 0.6;
+    animation: fadeUp 0.7s 0.2s ease both;
+}
+
+/* Description text */
+.description {
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(61, 122, 101, 0.8);
+    text-align: center;
+    line-height: 1.6;
+    margin: 0 0 32px;
+    animation: fadeUp 0.7s 0.35s ease both;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+/* Home Page link — styled as a button */
+.home-link {
+    display: inline-block;
+    padding: 13px 36px;
+    background-color: transparent;
+    border: 1px solid #5a9f88;
+    border-radius: 8px;
+    color: rgba(61, 122, 101, 0.8);
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: fadeUp 0.7s 0.5s ease both;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shimmer sweep on hover */
+.home-link::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(100, 180, 150, 0.15),
+        transparent
+    );
+    transition: left 0.4s ease;
+}
+
+.home-link:hover::before {
+    left: 100%;
+}
+
+.home-link:hover {
+    border-color: #64b496;
+    box-shadow: 0 0 18px rgba(100, 180, 150, 0.35);
+    color: #64b496;
+    transform: translateY(-2px);
+}
+
+.home-link:active {
+    transform: translateY(0);
+    box-shadow: 0 0 10px rgba(100, 180, 150, 0.2);
+}
