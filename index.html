@@ -12,9 +12,7 @@
     <header class="header">
         <div><h1>Color Blast(name of the game) logo</h1></div>
         <div class="in-header-elements-container">
-            <div class="in-header-elements"><h1 class="header-text-styling">To be added text</h1></div>
-            <div class="in-header-elements"><h1 class="header-text-styling">To be added text</h1></div>
-            <div class="in-header-elements"><h1 class="header-text-styling">To be added text</h1></div>
+            <div class="game-phrase-container"><h1 class="phrase-text-styling" id="phrase-display">Good try!</h1></div>
         </div>
         <div class="register-container"><h1><a href="register.html" class="register">Register</a></h1></div>
     </header>
@@ -31,7 +29,7 @@
                 <h1 class="nav-text-styling">Best: <span id="best-display">—</span></h1>
             </div>
             <div class="in-nav-elements">
-                <button id="new-round-btn">New Color</button>
+                <button id="start-again-btn"><span class="start-again-text">Start again</span></button>
             </div>
         </nav>
     </aside>
@@ -40,17 +38,18 @@
         
             <!-- The two color boxes -->
             <div class="colors-container">
-                <div class="color-box-wrapper-target">
-                    <p>Target Color</p>
-                    <div class="color-box" id="target-box"></div>
-                </div>
-            
-                <span class="vs-label">VS</span>
-            
                 <div class="color-box-wrapper-player">
                     <p>Your Mix</p>
                     <div class="color-box" id="player-box"></div>
                 </div>
+
+                <span class="vs-label">VS</span>
+
+                <div class="color-box-wrapper-target">
+                    <p>Target Color</p>
+                    <div class="color-box" id="target-box"></div>
+                </div>
+
             </div>
         
             <!-- RGB Sliders -->

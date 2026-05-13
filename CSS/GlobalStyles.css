@@ -96,7 +96,6 @@ body {
     border-radius: 8px;
     border-left: 4px solid;
     border-image: linear-gradient(180deg, #64b496, #8b7030) 1;
-    cursor: pointer;
     transition: all 0.3s ease;
 }
 
@@ -113,7 +112,6 @@ body {
     background-clip: text;
     margin: 0;
     font-size: 1.2em;
-    cursor: pointer;
     transition: all 0.3s ease;
 }
 
