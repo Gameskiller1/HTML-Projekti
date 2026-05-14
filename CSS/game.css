@@ -2,14 +2,22 @@
 
 .game-box {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
     gap: 40px;
     padding: 40px;
     border: 2px solid transparent;
     border-image: linear-gradient(135deg, #4a7d6f, #8b7030) 1;
     background: linear-gradient(135deg, rgba(74, 125, 111, 0.05), rgba(139, 112, 48, 0.05));
     box-shadow: 0 0 25px rgba(74, 125, 111, 0.12), inset 0 0 15px rgba(74, 125, 111, 0.08);
+}
+
+.game-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
 }
 
 /* === Color Boxes === */
@@ -113,16 +121,20 @@
 #slider-r { background: linear-gradient(to right, #1a1a1a, #ff4444); }
 #slider-g { background: linear-gradient(to right, #1a1a1a, #44ff88); }
 #slider-b { background: linear-gradient(to right, #1a1a1a, #4488ff); }
-
+#slider-a { background: linear-gradient(to right, #ffffff00, #ffffff); }
 #label-r { color: #ff6b6b; }
 #label-g { color: #6bff9e; }
 #label-b { color: #6baeff; }
-
+#label-a { color: #ffffff; }
 .slider-row span:last-child {
     width: 35px;
     text-align: right;
     font-size: 0.9rem;
     color: #888;
+}
+
+#alpha-slider {
+    display: none;
 }
 
 /* === Game phrase === */
@@ -199,4 +211,98 @@
     background: linear-gradient(135deg, rgba(74, 125, 111, 0.3), rgba(139, 112, 48, 0.3));
     transform: scale(1.04);
     color: #e0e0e0;
+}
+
+/* === Result styles === */
+
+#result-display {
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    min-width: 360px;
+    max-width: 360px;
+    padding: 30px 24px;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: linear-gradient(135deg, rgba(74,125,111,0.07), rgba(139,112,48,0.07));
+    border-radius: 12px;
+    align-self: stretch;
+}
+
+.result-title {
+    background: linear-gradient(135deg, #5a9f88, #a89060);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.result-score-wrapper {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+}
+
+.result-score-number {
+    font-size: 3.5rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #5a9f88, #a89060);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.result-score-label {
+    font-size: 3.5rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #5a9f88, #a89060);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.result-target-label {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #555;
+    margin: 0;
+}
+
+.result-rgb {
+    font-size: 0.85rem;
+    color: #888;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+}
+
+.diff-buttons {
+    padding: 15px 30px;
+    border: 2px solid transparent;
+    border-image: linear-gradient(135deg, #4a7d6f, #8b7030) 1;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #64b496, #8b6464);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.diff-buttons:hover {
+    box-shadow: 0 0 20px rgba(100, 180, 150, 0.35), inset 0 0 15px rgba(139, 112, 48, 0.15);
+    background: linear-gradient(135deg, #8b7030, #8b6464);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transform: scale(1.05);
 }

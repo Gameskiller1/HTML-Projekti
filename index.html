@@ -23,7 +23,7 @@
                 <h1 class="nav-text-styling">Round: <span id="round-display">1</span></h1>
             </div>
             <div class="in-nav-elements">
-                <h1 class="nav-text-styling">Score: <span id="score-display">0</span></h1>
+                <h1 class="nav-text-styling">Time: <span id="timer-display">—</span></h1>
             </div>
             <div class="in-nav-elements">
                 <h1 class="nav-text-styling">Best: <span id="best-display">—</span></h1>
@@ -35,55 +35,71 @@
     </aside>
     <section class="section">
         <div class="game-box">
+            <div class="game-main">
+                        <!-- The two color boxes -->
+                <div class="colors-container">
+                    <div class="color-box-wrapper-player">
+                        <p>Your Mix</p>
+                        <div class="color-box" id="player-box"></div>
+                    </div>
+
+                    <span class="vs-label">VS</span>
+
+                    <div class="color-box-wrapper-target">
+                        <p>Target Color</p>
+                        <div class="color-box" id="target-box"></div>
+                    </div>
+
+                </div>
+            
+                <!-- RGB Sliders -->
+                <div class="sliders-container">
+                    <div class="slider-row">
+                        <span class="slider-label">R</span>
+                        <input type="range" id="slider-r" min="0" max="255" value="128">
+                        <span id="val-r">128</span>
+                    </div>
+                    <div class="slider-row">
+                        <span class="slider-label">G</span>
+                        <input type="range" id="slider-g" min="0" max="255" value="128">
+                        <span id="val-g">128</span>
+                    </div>
+                    <div class="slider-row">
+                        <span class="slider-label">B</span>
+                        <input type="range" id="slider-b" min="0" max="255" value="128">
+                        <span id="val-b">128</span>
+                    </div>
+                    <div class="slider-row" id="alpha-slider">
+                        <span class="slider-label">A</span>
+                        <input type="range" id="slider-a" min="0" max="255" value="128">
+                        <span id="val-a">128</span>
+                    </div>
+                </div>
         
-            <!-- The two color boxes -->
-            <div class="colors-container">
-                <div class="color-box-wrapper-player">
-                    <p>Your Mix</p>
-                    <div class="color-box" id="player-box"></div>
-                </div>
-
-                <span class="vs-label">VS</span>
-
-                <div class="color-box-wrapper-target">
-                    <p>Target Color</p>
-                    <div class="color-box" id="target-box"></div>
-                </div>
-
+                <!-- Submit -->
+                <button id="submit-btn">Submit Guess</button>
             </div>
-        
-            <!-- RGB Sliders -->
-            <div class="sliders-container">
-                <div class="slider-row">
-                    <span class="slider-label">R</span>
-                    <input type="range" id="slider-r" min="0" max="255" value="128">
-                    <span id="val-r">128</span>
+            <div id="result-display">
+                <p class="result-title">Result</p>
+                <div class="result-score-wrapper">
+                    <span class="result-score-number" id="result-score-number">—</span>
+                    <span class="result-score-label">&nbsp;/ 100</span>
                 </div>
-                <div class="slider-row">
-                    <span class="slider-label">G</span>
-                    <input type="range" id="slider-g" min="0" max="255" value="128">
-                    <span id="val-g">128</span>
-                </div>
-                <div class="slider-row">
-                    <span class="slider-label">B</span>
-                    <input type="range" id="slider-b" min="0" max="255" value="128">
-                    <span id="val-b">128</span>
-                </div>
-            </div>
-        
-            <!-- Submit -->
-            <button id="submit-btn">Submit Guess</button>
-        
+                <p class="result-target-label">Target was</p>
+                <span class="result-rgb" id="target-rgb-display">—</span>
+            </div>       
         </div>
     </section>
     </div>
     <footer class="footer">
         <div class="footer-left-container">
-        <div class="in-footer-elements"><h1 class="footer-text-styling">To be added text/link</h1></div>            
+            <button class="diff-buttons" id="easy-btn">Easy</button>            
         </div>
-        <div class="in-footer-elements"><h1 class="footer-text-styling">To be added text/link</h1></div>
+        
+        <button class="diff-buttons" id="medium-btn">Medium</button>
+
         <div class="footer-right-container">
-        <div class="in-footer-elements"><h1 class="footer-text-styling">To be added text/link</h1></div>
+            <button class="diff-buttons" id="hard-btn">Hard</button>
         </div>
     </footer>
     <script src="JS/colorGame.js"></script>
