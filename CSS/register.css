@@ -19,13 +19,23 @@
     }
 }
 
+.in-header-elements-container {
+    gap: unset;
+    transform: none;
+    align-items: center;
+    display: flex;
+    position: absolute;
+}
+
 /* make text in header align to center */
 .header {
     justify-content: center;
+    align-items: center;
 }
 
 /* change header to feel like text */
 .header-text-styling {
+    text-align: center;
     background: none;
     -webkit-background-clip: unset;
     -webkit-text-fill-color: unset;
@@ -46,6 +56,7 @@
 
 .in-header-elements:hover {
     all: unset; 
+    text-align: center;
 }
 
 /* hide aside */

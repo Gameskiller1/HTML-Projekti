@@ -36,3 +36,39 @@
     background: linear-gradient(135deg, rgba(74, 125, 111, 0.05), rgba(139, 112, 48, 0.05));
     box-shadow: 0 0 25px rgba(74, 125, 111, 0.12), inset 0 0 15px rgba(74, 125, 111, 0.08);
 }
+
+/* === Coin Display === */
+.coin-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    margin-left: auto;
+    margin-right: 4px;
+    background: linear-gradient(135deg, rgba(74,125,111,0.08), rgba(139,112,48,0.08));
+    border: 1px solid rgba(168, 144, 96, 0.25);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.coin-display:hover {
+    background: linear-gradient(135deg, rgba(74,125,111,0.15), rgba(139,112,48,0.15));
+    box-shadow: 0 0 16px rgba(168, 144, 96, 0.2), inset 0 0 10px rgba(168, 144, 96, 0.08);
+}
+
+.coin-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.coin-amount {
+    background: linear-gradient(135deg, #a89060, #d4b478);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    min-width: 30px;
+    text-align: right;
+}

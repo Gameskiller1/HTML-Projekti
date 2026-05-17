@@ -22,12 +22,15 @@ body {
     width: 100%;
     flex-shrink: 0;
     box-shadow: 0 8px 32px rgba(100, 180, 150, 0.08);
+    box-sizing: border-box;
 }
 
 .in-header-elements-container {
     align-items: center;
     display: flex;
     gap: 115px;
+    transform: translateX(-50%);
+    position: absolute;
 }
 
 .in-header-elements {
@@ -123,12 +126,18 @@ body {
 }
 
 /* Section, so the game board */
+.section::-webkit-scrollbar {
+    display: none;
+}
 .section {
+    position: relative;
     flex: 1;
     padding: 50px;
     background: linear-gradient(135deg, #0d0d0d 0%, #161616 100%);
     margin-left: 0;
     overflow: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
 }
 
 /* Footer, the bottom */

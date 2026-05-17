@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory Game</title>
+    <link rel="icon" href="Assets/LogoNFavicon.png">
     <link rel="stylesheet" href="CSS/GlobalStyles.css">
     <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/game.css">
 </head>
 <body>
     <header class="header">
-        <div><h1>Color Blast(name of the game) logo</h1></div>
-        <div class="in-header-elements-container">
-            <div class="game-phrase-container"><h1 class="phrase-text-styling" id="phrase-display">Good try!</h1></div>
+        <div><img src="Assets/LogoNFavicon.png" alt="Color Blast Logo" class="logo"></div>
+        <div class="coin-display" id="coin-display">
+            <span class="coin-icon">🪙</span>
+            <span class="coin-amount" id="coin-amount">0</span>
         </div>
         <div class="register-container"><h1><a href="register.html" class="register">Register</a></h1></div>
     </header>
@@ -29,12 +31,54 @@
                 <h1 class="nav-text-styling">Best: <span id="best-display">—</span></h1>
             </div>
             <div class="in-nav-elements">
+                <button id="shop-btn"><span class="shop-text">To the shop</span></button>
+            </div>
+            <div class="in-nav-elements">
+                <button id="inventory-btn"><span class="inventory-text">Inventory</span></button>
+            </div>
+            <div class="in-nav-elements">
                 <button id="start-again-btn"><span class="start-again-text">Start again</span></button>
             </div>
         </nav>
     </aside>
     <section class="section">
+        <div class="text-box" id="popup">
+            <h1 class="text-box-title" id="popup-text">Welcome to Color Blast!</h1>
+        </div>
+        <div class="inventory-box" id="inventory-box">
+            <div class="inventory-header">
+                <h1 class="inventory-title">Inventory</h1>
+            </div>
+            <div class="inventory-grid">
+                <button class="inventory-item" id="time-extender">
+                    <span class="inventory-item-icon">⏱️</span>
+                    <p class="inventory-item-name">Time Extender</p>
+                    <span class="inventory-item-count" id="owned-timeExtender">x0</span>
+                </button>
+                <button class="inventory-item" id="color-hint">
+                    <span class="inventory-item-icon">🎨</span>
+                    <p class="inventory-item-name">Color Hint</p>
+                    <span class="inventory-item-count" id="owned-colorHint">x0</span>
+                </button>
+                <button class="inventory-item" id="round-skip">
+                    <span class="inventory-item-icon">⏭️</span>
+                    <p class="inventory-item-name">Round Skip</p>
+                    <span class="inventory-item-count" id="owned-roundSkip">x0</span>
+                </button>
+                <button class="inventory-item" id="reroll">
+                    <span class="inventory-item-icon">🎲</span>
+                    <p class="inventory-item-name">Reroll</p>
+                    <span class="inventory-item-count" id="owned-reroll">x0</span>
+                </button>
+                <button class="inventory-item" id="score-floor">
+                    <span class="inventory-item-icon">🛡️</span>
+                    <p class="inventory-item-name">Score Floor</p>
+                    <span class="inventory-item-count" id="owned-scoreFloor">x0</span>
+                </button>
+            </div>
+        </div>
         <div class="game-box">
+                <div class="game-phrase-container"><h1 class="phrase-text-styling" id="phrase-display">Good try!</h1></div> 
             <div class="game-main">
                         <!-- The two color boxes -->
                 <div class="colors-container">
@@ -102,6 +146,8 @@
             <button class="diff-buttons" id="hard-btn">Hard</button>
         </div>
     </footer>
+    <script src="JS/coins.js"></script>
+    <script src="JS/inventory.js"></script>
     <script src="JS/colorGame.js"></script>
 </body>
 </html>

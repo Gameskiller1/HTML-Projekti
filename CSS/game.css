@@ -1,3 +1,197 @@
+/* === Logo styles === */
+.logo {
+    width: 128px;
+    height: 128px;
+}
+/* === Text Box styles === */
+.text-box {
+    position: absolute;
+    z-index: 15;
+    top: 10%;
+    left: 50%;
+    transform: translate(-60%, -70%);
+    padding: 30px 40px;
+    border: 2px solid transparent;
+    border-image: linear-gradient(135deg, #4a7d6f05, #8b703005) 1;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(74, 125, 111, 0.05), rgba(139, 112, 48, 0.05));
+    box-shadow: 0 0 25px rgba(74, 125, 111, 0.12), inset 0 0 15px rgba(74, 125, 111, 0.08);
+    max-width: 600px;
+    margin: auto;
+    transition: opacity 1s ease;
+}
+
+.text-box-title {
+    background: linear-gradient(135deg, #5a9f88, #a89060);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.2em;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin: 0;
+    text-align: center;
+}
+/* === Inventory Styles and Shop btn styles === */
+
+.inventory-box {
+    position: absolute;
+    inset: 20px;
+    z-index: 10;
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px;
+    background: linear-gradient(180deg, #121212 0%, #191919 100%);
+    border: 2px solid transparent;
+    border-image: linear-gradient(135deg, #4a7d6f, #8b7030) 1;
+    box-shadow: 0 0 25px rgba(74, 125, 111, 0.12), inset 0 0 15px rgba(74, 125, 111, 0.08);
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+}
+
+.inventory-box::-webkit-scrollbar {
+    display: none;
+}
+
+.inventory-box.active {
+    display: block;
+}
+
+#inventory-btn {
+    display: flex;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, rgba(74, 125, 111, 0.15), rgba(139, 112, 48, 0.15));
+    color: #c5c5c5;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    width: 100%;
+}
+
+#shop-btn {
+    display: flex;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, rgba(74, 125, 111, 0.15), rgba(139, 112, 48, 0.15));
+    color: #c5c5c5;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    width: 100%;
+}
+
+#shop-btn:hover {
+    background: linear-gradient(135deg, rgba(74, 125, 111, 0.3), rgba(139, 112, 48, 0.3));
+    transform: scale(1.04);
+    color: #e0e0e0;
+}
+
+#inventory-btn:hover {
+    background: linear-gradient(135deg, rgba(74, 125, 111, 0.3), rgba(139, 112, 48, 0.3));
+    transform: scale(1.04);
+    color: #e0e0e0;
+}
+
+.shop-text {
+    background: linear-gradient(135deg, #64b496, #8b6464);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+}
+.inventory-text {
+    background: linear-gradient(135deg, #64b496, #8b6464);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+}
+
+/* === Inventory Header === */
+
+.inventory-header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.inventory-title {
+    background: linear-gradient(135deg, #5a9f88, #a89060);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    font-size: 1.6em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* === Inventory Grid === */
+
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 16px;
+}
+
+/* === Inventory Item === */
+
+.inventory-item {
+    font-family: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 12px;
+    background: linear-gradient(135deg, rgba(74, 125, 111, 0.08), rgba(139, 112, 48, 0.08));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.inventory-item:hover {
+    background: linear-gradient(135deg, rgba(74, 125, 111, 0.18), rgba(139, 112, 48, 0.18));
+    box-shadow: 0 0 20px rgba(100, 180, 150, 0.2), inset 0 0 15px rgba(100, 180, 150, 0.08);
+    transform: scale(1.05);
+}
+
+.inventory-item-icon {
+    font-size: 2rem;
+}
+
+.inventory-item-name {
+    background: linear-gradient(135deg, #5a9f88, #a89060);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0;
+    text-align: center;
+}
+
+.inventory-item-count {
+    font-size: 0.75rem;
+    color: #555;
+    letter-spacing: 0.5px;
+}
+
+
 /* === Color Game Styles === */
 
 .game-box {
@@ -134,7 +328,7 @@
 }
 
 #alpha-slider {
-    display: none;
+    visibility: hidden;
 }
 
 /* === Game phrase === */
@@ -146,6 +340,10 @@
     border-radius: 8px;
     transition: all 0.3s ease;
     background: linear-gradient(135deg, rgba(74, 125, 111, 0.05), rgba(139, 112, 48, 0.05));
+    min-width: 220px;
+    min-height: 16px;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .phrase-text-styling {

@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cubie's Shop</title>
+    <link rel="icon" href="Assets/LogoNFavicon.png">
+    <link rel="stylesheet" href="CSS/GlobalStyles.css">
+    <link rel="stylesheet" href="CSS/shop.css">
+</head>
+<body>
+    <header class="header">
+        <div class="coin-display" id="coin-display">
+            <span class="coin-icon">🪙</span>
+            <span class="coin-amount" id="coin-amount">0</span>
+        </div>
+    </header>
+    <div class="main-container">
+        <aside class="aside">
+            <nav class="nav">
+                <div class="in-nav-elements">
+                    <a class="nav-text-styling" href="index.html">Back to the game!</a>
+                </div>
+            </nav>
+        </aside>
+        <section class="section">
+            <div class="shop-content">
+                <h1 class="shop-title">Welcome to Cubie's Shop!</h1>
+                <p class="shop-description">Here you can buy different powerups to enhance your game experience!</p>
+                <p id="shop-message"></p>
+            </div>
+
+            <div class="shop-items">
+
+                <!-- Time Extender -->
+                <div class="shop-item">
+                    <div class="item-icon time-icon">⏱️</div>
+                    <h2 class="item-title time-title">Time Extender</h2>
+                    <p class="item-description">Adds 15 extra seconds to your timer for the current round.</p>
+                    <p class="item-owned" id="owned-timeExtender">Owned: 0</p>
+                    <button class="buy-button time-button">Buy for 100 coins</button>
+                </div>
+
+                <!-- Color Hint -->
+                <div class="shop-item">
+                    <div class="item-icon color-icon">🎨</div>
+                    <h2 class="item-title color-title">Color Hint</h2>
+                    <p class="item-description">Reveals 1 of the RGB values of the target color for the current round.</p>
+                    <p class="item-owned" id="owned-colorHint">Owned: 0</p>
+                    <button class="buy-button color-button">Buy for 150 coins</button>
+                </div>
+
+                <!-- Round Skip -->
+                <div class="shop-item">
+                    <div class="item-icon skip-icon">⏭️</div>
+                    <h2 class="item-title skip-title">Round Skip</h2>
+                    <p class="item-description">Skip the current round with no score penalty. A fresh target will be generated.</p>
+                    <p class="item-owned" id="owned-roundSkip">Owned: 0</p>
+                    <button class="buy-button skip-button">Buy for 90 coins</button>
+                </div>
+
+                <!-- Reroll -->
+                <div class="shop-item">
+                    <div class="item-icon reroll-icon">🎲</div>
+                    <h2 class="item-title reroll-title">Reroll</h2>
+                    <p class="item-description">Generate a new target color without resetting the round timer.</p>
+                    <p class="item-owned" id="owned-reroll">Owned: 0</p>
+                    <button class="buy-button reroll-button">Buy for 70 coins</button>
+                </div>
+
+                <!-- Score Floor -->
+                <div class="shop-item">
+                    <div class="item-icon floor-icon">🛡️</div>
+                    <h2 class="item-title floor-title">Score Floor</h2>
+                    <p class="item-description">Guarantees your next submission scores at least 50, no matter how far off you are.</p>
+                    <p class="item-owned" id="owned-scoreFloor">Owned: 0</p>
+                    <button class="buy-button floor-button">Buy for 130 coins</button>
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <script src="JS/coins.js"></script>
+    <script src="JS/inventory.js"></script>
+    <script src="JS/shop.js"></script>
+</body>
+</html>
