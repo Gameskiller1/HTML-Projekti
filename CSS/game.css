@@ -411,7 +411,7 @@
     color: #e0e0e0;
 }
 
-/* === Result styles === */
+/* === Result styles + coins earned === */
 
 #result-display {
     visibility: hidden;
@@ -479,6 +479,13 @@
     color: #888;
     font-family: monospace;
     letter-spacing: 0.5px;
+}
+
+.coins-earned-display {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
 }
 
 .diff-buttons {

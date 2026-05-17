@@ -39,17 +39,17 @@ function showShopMessage(text, color) {
 
 // Wire up each button
 document.querySelector(".time-button").addEventListener("click", () => {
-    buyPowerup("timeExtender", 100)
+    buyPowerup("timeExtender", 90)
 })
 document.querySelector(".color-button").addEventListener("click", () => {
-    buyPowerup("colorHint", 150)
+    buyPowerup("colorHint", 130)
 })
 document.querySelector(".skip-button").addEventListener("click", () => {
     buyPowerup("roundSkip", 90)
 })
 document.querySelector(".reroll-button").addEventListener("click", () => {
-    buyPowerup("reroll", 70)
+    buyPowerup("reroll", 65)
 })
 document.querySelector(".floor-button").addEventListener("click", () => {
-    buyPowerup("scoreFloor", 130)
+    buyPowerup("scoreFloor", 120)
 })

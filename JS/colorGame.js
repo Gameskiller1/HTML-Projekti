@@ -4,6 +4,7 @@ const shopbtn = document.getElementById("shop-btn")
 const resultdisplay = document.getElementById("result-display")
 const targetresult = document.getElementById("target-rgb-display")
 const scoreNresult = document.getElementById("result-score-number")
+const coinsdisplay = document.getElementById("coins-earned-display")
 
 const inventorybtn = document.getElementById('inventory-btn');
 const inventorybox = document.getElementById('inventory-box');
@@ -16,6 +17,8 @@ const rerollbtn = document.getElementById("reroll")
 const scorefloorbtn = document.getElementById("score-floor")
 
 let popuptimeout = null
+let scorefloorused = false
+let colorhintused = false
 const popup = document.getElementById("popup")
 const popuptext = document.getElementById("popup-text")
 showpopup("Welcome to Color Blast!")
@@ -89,17 +92,22 @@ timeextenderbtn.addEventListener("click", () => {
 })
 
 colorhintbtn.addEventListener("click", () => {
+    if (colorhintused) {
+        showpopup("You've already used a Color Hint this round!")
+        return
+    }
     if (!hasItem("colorHint")) {
         showpopup("You don't have any Color Hints! Earn coins to buy them in the shop.")
         return
     }
     useItem("colorHint")
     showpopup("Color hint revealed!")
+    colorhintused = true
     if (Easy === true) {
-        pdisplay.textContent = Math.random() <= 0.33 ? `R: ${targetR}` : Math.random() <= 0.50 ? `G: ${targetG}` : `B:  ${targetB}`
+        pdisplay.textContent = Math.random() <= 1/3 ? `R: ${targetR}` : Math.random() <= 0.50 ? `G: ${targetG}` : `B:  ${targetB}`
     }
     else {
-        pdisplay.textContent = Math.random() <= 0.25 ? `R: ${targetR}` : Math.random() <= 0.33 ? `G: ${targetG}` : Math.random() <= 0.50 ? `B: ${targetB}` : `A: ${targetA}`
+        pdisplay.textContent = Math.random() <= 0.25 ? `R: ${targetR}` : Math.random() <= 1/3 ? `G: ${targetG}` : Math.random() <= 0.50 ? `B: ${targetB}` : `A: ${targetA}`
     }
 })
 
@@ -123,12 +131,17 @@ rerollbtn.addEventListener("click", () => {
     setTarget()
 })
 scorefloorbtn.addEventListener("click", () => {
+    if (scorefloorused) {
+        showpopup("You've already used a Score Floor this round!")
+        return
+    }
     if (!hasItem("scoreFloor")) {
         showpopup("You don't have any Score Floors! Earn coins to buy them in the shop.")
         return
     }
     useItem("scoreFloor")
     showpopup("Score Floor activated!")
+    scorefloorused = true
     scoreFloorActive = true
 })
 
@@ -170,7 +183,7 @@ function gameLoop(timestamp) {
     pdisplay.textContent = "Time's up!"
     lasttime = null
     scoreNresult.textContent = 0
-    newGame()
+    newGame() // endgame function on consideration
     return
     }
     requestAnimationFrame(gameLoop)
@@ -200,7 +213,15 @@ function setHardMode() {
     Hard = true;
     newGame()
 }
-
+function updateCoinsDisplay(coinsEarned, difficultyAdd) {
+    if (Easy === true) {
+        coinsdisplay.textContent = "Coins Earned: " + coinsEarned + "🪙"
+    } 
+    else {
+        const bonusLabel = Medium === true ? `<span style="color: #bbff00;">Medium bonus: </span>` : `<span style="color: #ff0000;">Hard bonus: </span>`
+        coinsdisplay.innerHTML = "Coins Earned: " + coinsEarned + " + " + bonusLabel + difficultyAdd + "🪙"
+    }
+}
 function updateNumberR() {
     valR.textContent = parseInt(sliderR.value)
     updateBox()
@@ -248,10 +269,13 @@ function setTarget() {
     else {
         targetBox.style.backgroundColor = `rgba(${targetR}, ${targetG}, ${targetB}, ${targetA / 255})`
     }
+    updateBox()
 }
 
 function checkAnswer() {
     submitbtn.disabled = true
+    colorhintused = false
+    scorefloorused = false
     resultdisplay.style.visibility = "visible"
     if (Easy === true) {
         points = Math.abs(sliderR.value - targetR) + Math.abs(sliderG.value - targetG) + Math.abs(sliderB.value - targetB)
@@ -261,15 +285,26 @@ function checkAnswer() {
         points = Math.abs(sliderR.value - targetR) + Math.abs(sliderG.value - targetG) + Math.abs(sliderB.value - targetB) + Math.abs(sliderA.value - targetA)
         console.log(points)
     }
-    if (Easy === true) {
-        scoreN = Math.round(100 - (points / 765) * 100)
+    if (points <= 10) {
+        scoreN = 100
     }
     else {
-        scoreN = Math.round(100 - (points / 1020) * 100)
-    }
-    if (scoreFloorActive) {
-        scoreN = Math.max(scoreN, 50)
-        scoreFloorActive = false
+        if (Easy === true) {
+            const ratio = points / 765
+            scoreN = Math.round(100 * Math.pow(1 - ratio, 3.5))
+        }
+        else if (Medium === true) {
+            const ratio = points / 1020
+            scoreN = Math.round(100 * Math.pow(1 - ratio, 3.1))
+        }
+        else {
+            const ratio = points / 1020
+            scoreN = Math.round(100 * Math.pow(1 - ratio, 2.77))
+        }
+        if (scoreFloorActive) {
+            scoreN = Math.max(scoreN, 50)
+            scoreFloorActive = false
+        }
     }
     if (scoreN > bestscore)
     {
@@ -287,40 +322,48 @@ function checkAnswer() {
     scoreNresult.textContent = scoreN
     setTarget()
     if (Easy === true) {
-        timer = 60
+        timer = 75
     }
     if (Medium === true) {
-        timer = 45
+        timer = 55
     }
     if (Hard === true) {
-        timer = 25
+        timer = 35
     }
     updatePhrase(scoreN)
 }
 
 function updatePhrase(scoreN) {
     let coinsEarned = 0
+    let difficultyAdd = 0
     if (scoreN === 100) {
         pdisplay.textContent = "Perfect Match!"
-        coinsEarned = 50
+        coinsEarned = 40
+        difficultyAdd = Medium === true ? 30 : Hard === true ? 110 : 0
     }
     else if (scoreN >= 80) {
         pdisplay.textContent = "Very Well!"
-        coinsEarned = 30       
+        coinsEarned = 18
+        difficultyAdd = Medium === true ? 17 : Hard === true ? 62 : 0
     }
-    else if (scoreN >= 50) {
-        pdisplay.textContent = "Not bad!"  
-        coinsEarned = 15
+    else if (scoreN >= 60) {
+        pdisplay.textContent = "Not bad!"
+        coinsEarned = 8
+        difficultyAdd = Medium === true ? 11 : Hard === true ? 33 : 0
     }
-    else if (scoreN >= 20) {
-        pdisplay.textContent = "Far away!"   
-        coinsEarned = 5    
+    else if (scoreN >= 35) {
+        pdisplay.textContent = "Far away!"
+        coinsEarned = 0
+        difficultyAdd = Medium === true ? 7 : Hard === true ? 15 : 0
     }
     else {
         pdisplay.textContent = "Not even close!"
-        coinsEarned = 1
+        coinsEarned = 0
+        difficultyAdd = Hard === true ? 5 : 0
     }
-    addCoins(coinsEarned)
+    updateCoinsDisplay(coinsEarned, difficultyAdd)
+    addCoins(coinsEarned + difficultyAdd)
+    
 }
 
 function newGame() {
@@ -328,13 +371,13 @@ function newGame() {
     resultdisplay.style.visibility = "hidden"   
     setTarget()
     if (Easy === true) {
-        timer = 60
+        timer = 75
     }
     if (Medium === true) {
-        timer = 45
+        timer = 55
     }
     if (Hard === true) {
-        timer = 25
+        timer = 35
     }
     sliderR.value = 128
     valR.textContent = parseInt(sliderR.value)
@@ -350,6 +393,8 @@ function newGame() {
     best.textContent = "—"
     lasttime = null
     gamerunning = true
+    colorhintused = false
+    scorefloorused = false
     requestAnimationFrame(gameLoop)
 }
 
@@ -358,13 +403,13 @@ function nextRound() {
     resultdisplay.style.visibility = "hidden"   
     setTarget()
     if (Easy === true) {
-        timer = 60
+        timer = 75
     }
     if (Medium === true) {
-        timer = 45
+        timer = 55
     }
     if (Hard === true) {
-        timer = 25
+        timer = 35
     }
     sliderR.value = 128
     valR.textContent = parseInt(sliderR.value)
@@ -378,6 +423,8 @@ function nextRound() {
     round.textContent = roundC
     lasttime = null
     gamerunning = true
+    colorhintused = false
+    scorefloorused = false
     requestAnimationFrame(gameLoop)
 }
 newGame()
